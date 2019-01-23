@@ -21,11 +21,13 @@
  <% @book.each do |books| %>
 
   <tr>
-  	<td><%= attachment_image_tag @user,:image, :fill, 60, 60, fallback:"no_image.jpg" , class: "" %></td>
+  	<td><%= attachment_image_tag @users,:image, :fill, 60, 60, fallback:"no_image.jpg" , class: "" %></td>
     <td><%= books.title %></td>
     <td><%= books.opinion %></td>
 
   </tr>
+
+
 
 
  <% end %>
