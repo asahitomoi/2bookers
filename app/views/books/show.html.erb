@@ -1,8 +1,9 @@
 <div class="container">
 	<div class="row">
 
-<%= render 'users/sidebar', user: @user %>
+<%= render 'users/error_messages', book:@books %>
 
+<%= render 'users/sidebar', user: @user, book: @books %>
 
 <div class="col-lg-8">
 
@@ -12,9 +13,9 @@
 <table class="table table-striped">
 
   <tr>
-  	<td rowspan=”2″><%= @book["user_id"] %><br><%=@user ["name" ] %></td>
-    <td><%= @book["title"] %></td>
-    <td><%= @book["opinion"] %></td>
+  	<td><%=@book.user.name %></td>
+    <td><%= @book.title %></td>
+    <td><%= @book.opinion %></td>
     	<% if @book.user == current_user %>
       <td><%= link_to"Edit", edit_book_path(@book.id), class: "btn-sm btn-success edit_book_#{@book.id}" %></td>
       <td><%= link_to "Destroy.", book_path(@book.id), class: "btn-sm btn-danger destroy_book_#{@book.id}", method: :delete, "data-confirm" => "Are you sure?" %></td>

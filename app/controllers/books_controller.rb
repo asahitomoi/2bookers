@@ -8,16 +8,17 @@ before_action :authenticate_user!
     	@book =Book.new
     end
     def create
-         @book = Book.new(book_params)
-         @book.user_id = current_user.id
-         @book.save
+         @book = Book.all
+         @user = current_user
+         @books = Book.new(book_params)
+         @books.user_id = current_user.id
 
-      if @book.save
+
+      if @books.save
       flash[:notice] = "Saved successfully."
-      redirect_to book_path(@book.id)
+      redirect_to book_path(@books.id)
       else
-      flash[:notice] = "Saved error"
-      render("books/new")
+      render 'index'
     end
 
     end
@@ -33,7 +34,8 @@ before_action :authenticate_user!
     def show
         @book = Book.find(params[:id])
         @books =Book.new
-        @user =@book.user
+        @user =current_user
+
     end
 
     def destroy

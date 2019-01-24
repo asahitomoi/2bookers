@@ -1,8 +1,9 @@
 <div class="container">
 	<div class="row">
 
-<%= render 'users/sidebar', user: @user %>
+<%= render 'users/error_messages', book:@books %>
 
+<%= render 'users/sidebar', user: @user, book:@books %>
 
 
 <div class="col-lg-8">
@@ -22,17 +23,14 @@
 
   <tr>
   	<td><%= attachment_image_tag @users,:image, :fill, 60, 60, fallback:"no_image.jpg" , class: "" %></td>
-    <td><%= books.title %></td>
+    <td class="book_#{books.id}"><%= link_to book_path(books.id)do%><%= books.title %><% end %></td>
     <td><%= books.opinion %></td>
 
   </tr>
-
-
-
 
  <% end %>
 
   </table>
 </div>
-   </div>
+ </div>
 </div>
