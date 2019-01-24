@@ -17,23 +17,37 @@ end
 
 def create
         # ストロングパラメーターを使用
-         book = Book.new(user_params)
-        # DBへ保存する
-         book.save
-        # トップ画面へリダイレクト
-        redirect_to '/books/:id'
+         user = User.new(user_params)
+
+      if user.save
+      flash[:notice] = "Saved successfully."
+      redirect_to user_path(user.id)
+      else
+      render 'index'
     end
+end
 
 def edit
       @user = User.find(params[:id])
+
 end
 
 def update
     @user = User.find(params[:id])
-    @user.update_attributes(user_params)
-    redirect_to user_path(@user.id)
+     if @user.update(user_params)
+      flash[:notice] = "Updated successfully."
+      redirect_to user_path(@user.id)
+      else
+      render'edit'
+    end
 
 end
+
+def edit
+        @user =User.find(params[:id])
+
+    end
+
 
 
 def correct_user

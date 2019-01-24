@@ -23,7 +23,7 @@
 
   <tr>
   	<td><%= attachment_image_tag @users,:image, :fill, 60, 60, fallback:"no_image.jpg" , class: "" %></td>
-    <td class="book_#{books.id}"><%= link_to book_path(books.id)do%><%= books.title %><% end %></td>
+    <td><%= link_to book_path(books.id), class:"book_#{books.id}" do%><%= books.title %><% end %></td>
     <td><%= books.opinion %></td>
 
   </tr>
