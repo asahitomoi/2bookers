@@ -8,8 +8,6 @@ before_action :authenticate_user!
     	@book =Book.new
     end
     def create
-         @book = Book.all
-         @user = current_user
          @books = Book.new(book_params)
          @books.user_id = current_user.id
 
@@ -18,6 +16,8 @@ before_action :authenticate_user!
       flash[:notice] = "Saved successfully."
       redirect_to book_path(@books.id)
       else
+         @book = Book.all
+         @user = current_user
       render 'index'
     end
 
