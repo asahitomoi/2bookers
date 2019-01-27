@@ -1,6 +1,6 @@
 <% if user.errors.any? %>
   <div class="alert alert-warning">
-  	<h2><%= user.errors.count %>件のエラーがあります。</h2>
+  	<h2><%= user.errors.count %>error occurreence</h2>
     <ul>
       <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>

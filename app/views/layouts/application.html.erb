@@ -9,6 +9,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+</head>
+
+<body>
+
+  <header class= "navbar navbar-fixed-top navbar-inverse">
 
     <div id="slidemenu">
   <ul class="nav navbar-nav navbar-right" data-hover="dropdown">
@@ -33,14 +38,14 @@
 
     <% else %>
       <li>
-        <%= link_to root_path, class:"home"  do %>
+        <%= link_to root_path, class: "home"  do %>
     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home
 <% end %>
       </li>
 
 
       <li>
-         <%= link_to home_about_path, class:"about" do %>
+         <%= link_to home_about_path, class: "about" do %>
     <span class="glyphicon glyphicon-link" aria-hidden="true"></span>about
 <% end %>
 
@@ -48,13 +53,13 @@
       </li>
 
        <li>
-        <%= link_to new_user_registration_path, class:"sign_up" do %>
+        <%= link_to new_user_registration_path, class: "sign_up" do %>
     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>sign up
         <% end %>
       </li>
 
       <li>
-        <%= link_to new_user_session_path, class:"sign_in" do %>
+        <%= link_to new_user_session_path, class: "sign_in" do %>
     <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>log in
         <% end %>
       </li>
@@ -63,12 +68,9 @@
   </ul>
 </div>
 
-</head>
+</header>
 
 
-
-
-  <body>
     <%= yield %>
   </body>
 </html>
